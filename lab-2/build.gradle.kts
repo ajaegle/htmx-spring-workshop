@@ -28,8 +28,9 @@ dependencies {
     implementation("gg.jte:jte:3.1.9")
 
     // LAB 2:
-     implementation("de.tschuehly:spring-view-component-jte:0.7.4")
-     annotationProcessor("de.tschuehly:spring-view-component-core:0.7.4")
+implementation("de.tschuehly:spring-view-component-jte:0.7.4")
+annotationProcessor("de.tschuehly:spring-view-component-core:0.7.4")
+implementation("io.github.wimdeblauwe:htmx-spring-boot:3.2.0")
 
     implementation("net.datafaker:datafaker:2.1.0")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
