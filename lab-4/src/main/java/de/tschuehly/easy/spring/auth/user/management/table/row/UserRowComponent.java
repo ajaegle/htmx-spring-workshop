@@ -1,10 +1,9 @@
 package de.tschuehly.easy.spring.auth.user.management.table.row;
 
-import static de.tschuehly.easy.spring.auth.user.management.UserManagement.CLOSE_MODAL_EVENT;
+import static de.tschuehly.easy.spring.auth.web.layout.LayoutComponent.CLOSE_MODAL_EVENT;
 
 import de.tschuehly.easy.spring.auth.htmx.HtmxUtil;
 import de.tschuehly.easy.spring.auth.user.EasyUser;
-import de.tschuehly.easy.spring.auth.user.management.UserManagement;
 import de.tschuehly.easy.spring.auth.user.management.table.UserTableComponent;
 import de.tschuehly.spring.viewcomponent.core.component.ViewComponent;
 import de.tschuehly.spring.viewcomponent.jte.ViewContext;
@@ -37,7 +36,7 @@ public class UserRowComponent {
     String target = HtmxUtil.target(UserTableComponent.USER_TABLE_BODY_ID);
     HtmxUtil.retarget(target);
     HtmxUtil.reswap(HxSwapType.AFTER_BEGIN);
-    HtmxUtil.trigger(UserManagement.CLOSE_MODAL_EVENT);
+    HtmxUtil.trigger(CLOSE_MODAL_EVENT);
     return new UserRowContext(user);
   }
 }

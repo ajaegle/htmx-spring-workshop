@@ -23,7 +23,8 @@ public class LayoutComponent {
   }
 
   public ViewContext render(ViewContext content) {
-    List<NavigationItem> navigationItemList = pageList.stream().map(it -> it.navigationItem()).toList();
+    List<NavigationItem> navigationItemList = pageList.stream()
+        .map(Page::navigationItem).toList();
     return new LayoutContext(content, navigationItemList);
   }
 }
