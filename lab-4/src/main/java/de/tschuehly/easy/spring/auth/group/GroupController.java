@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class GroupController {
+
   private final GroupManagement groupManagement;
   private final AddUserComponent addUserComponent;
   private final GroupTableComponent groupTableComponent;
@@ -27,21 +28,24 @@ public class GroupController {
   }
 
   @GetMapping("/groupManagement")
-  public ViewContext groupManagement(){
+  public ViewContext groupManagement() {
     return groupManagement.render();
   }
 
-  public final static String GET_SELECT_USER =  "/group/{groupName}/select-user";
+  public final static String GET_SELECT_USER = "/group/{groupName}/select-user";
+
   @GetMapping(GET_SELECT_USER)
-  public ViewContext selectUser(@PathVariable String groupName){
+  public ViewContext selectUser(@PathVariable String groupName) {
     return addUserComponent.render(groupName);
   }
 
   public final static String POST_ADD_USER = "/group/{groupName}/add-user";
   public final static String USER_ID_PARAM = "userId";
+
   @PostMapping(POST_ADD_USER)
-  public ViewContext addUser(@PathVariable String groupName, @RequestParam(USER_ID_PARAM) UUID userId){
-    groupService.addUserToGroup(groupName,userId);
+  public ViewContext addUser(@PathVariable String groupName,
+      @RequestParam(USER_ID_PARAM) UUID userId) {
+    groupService.addUserToGroup(groupName, userId);
     return groupTableComponent.render();
   }
 }

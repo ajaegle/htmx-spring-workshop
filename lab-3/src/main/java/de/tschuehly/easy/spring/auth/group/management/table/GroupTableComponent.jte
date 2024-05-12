@@ -1,4 +1,6 @@
 @import static de.tschuehly.easy.spring.auth.group.management.table.GroupTableComponent.*
+@import static de.tschuehly.easy.spring.auth.group.GroupController.GET_SELECT_USER
+@import de.tschuehly.easy.spring.auth.htmx.HtmxUtil
 @import de.tschuehly.easy.spring.auth.group.management.table.GroupTableComponent.GroupTableContext
 @param GroupTableContext groupTableContext
 <table id="${GROUP_TABLE_ID}">
@@ -27,6 +29,12 @@
                 @else
                     <span>no member</span>
                 @endfor
+            </td>
+            <td>
+                <button hx-get="${HtmxUtil.URI(GET_SELECT_USER,group.groupName)}"
+                        hx-swap="outerHTML">
+                    <img src="/plus.svg">
+                </button>
             </td>
         </tr>
     @endfor
